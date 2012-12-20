@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['activityoverview'] = 'You have {$a}s that need attention';
+$string['activityoverview'] = 'You have {$a}s that need attention View them <em>here</em>';
 $string['alwaysshowall'] = 'Always Show All';
 $string['collapseall'] = 'Collapse All Course Lists';
 $string['configotherexpanded'] = 'If enabled, Other Courses will be expanded by default unless overriden by user preferences.';
@@ -51,6 +51,6 @@ $string['showchildrendesc'] = 'Should child courses be listed underneath the mai
 $string['showwelcomearea'] = 'Show welcome area';
 $string['showwelcomeareadesc'] = 'Show the welcome area above the course list?';
 $string['view_edit_profile'] = '(View and edit your profile.)';
-$string['welcome'] = 'Welcome {$a}';
+$string['welcome'] = 'Welcome back {$a}';
 $string['youhavemessages'] = 'You have {$a} unread ';
 $string['youhavenomessages'] = 'You have no unread ';
