@@ -17,11 +17,11 @@
 /**
  * Course overview block
  *
- * @package    block_course_overview
+ * @package    block_course_overview_plus
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-require_once($CFG->dirroot.'/blocks/course_overview/locallib.php');
+require_once($CFG->dirroot.'/blocks/course_overview_plus/locallib.php');
 
 /**
  * Course overview block
@@ -29,16 +29,16 @@ require_once($CFG->dirroot.'/blocks/course_overview/locallib.php');
  * @copyright  1999 onwards Martin Dougiamas (http://dougiamas.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class block_course_overview extends block_base {
+class block_course_overview_plus extends block_base {
     /**
      * Block initialization
      */
     public function init() {
-        $this->title   = get_string('pluginname', 'block_course_overview');
+        $this->title   = get_string('pluginname', 'block_course_overview_plus');
     }
 
     /**
-     * Return contents of course_overview block
+     * Return contents of course_overview_plus block
      *
      * @return stdClass contents of block
      */
@@ -50,7 +50,7 @@ class block_course_overview extends block_base {
             return $this->content;
         }
 
-        $config = get_config('block_course_overview');
+        $config = get_config('block_course_overview_plus');
 
         $this->content = new stdClass();
         $this->content->text = '';
@@ -60,14 +60,14 @@ class block_course_overview extends block_base {
 
         $updatemynumber = optional_param('mynumber', -1, PARAM_INT);
         if ($updatemynumber >= 0) {
-            block_course_overview_update_mynumber($updatemynumber);
+            block_course_overview_plus_update_mynumber($updatemynumber);
         }
 
         profile_load_custom_fields($USER);
-        list($sortedcourses, $sitecourses, $totalcourses) = block_course_overview_get_sorted_courses();
-        $overviews = block_course_overview_get_overviews($sitecourses);
+        list($sortedcourses, $sitecourses, $totalcourses) = block_course_overview_plus_get_sorted_courses();
+        $overviews = block_course_overview_plus_get_overviews($sitecourses);
 
-        $renderer = $this->page->get_renderer('block_course_overview');
+        $renderer = $this->page->get_renderer('block_course_overview_plus');
         if (!empty($config->showwelcomearea)) {
             require_once($CFG->dirroot.'/message/lib.php');
             $msgcount = message_count_unread_messages();
@@ -83,10 +83,10 @@ class block_course_overview extends block_base {
             $this->content->text .= get_string('nocourses','my');
         } else {
             // For each course, build category cache.
-            $this->content->text .= $renderer->course_overview($sortedcourses, $overviews);
+            $this->content->text .= $renderer->course_overview_plus($sortedcourses, $overviews);
             $this->content->text .= $renderer->hidden_courses($totalcourses - count($sortedcourses));
             if ($this->page->user_is_editing() && ajaxenabled()) {
-                $this->page->requires->js_init_call('M.block_course_overview.add_handles');
+                $this->page->requires->js_init_call('M.block_course_overview_plus.add_handles');
             }
         }
 
@@ -118,7 +118,7 @@ class block_course_overview extends block_base {
      */
     public function hide_header() {
         // Hide header if welcome area is show.
-        $config = get_config('block_course_overview');
+        $config = get_config('block_course_overview_plus');
         return !empty($config->showwelcomearea);
     }
 }

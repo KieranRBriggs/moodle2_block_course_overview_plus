@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Lang strings for course_overview block
+ * Lang strings for course_overview_plus block
  *
- * @package    block_course_overview
+ * @package    block_course_overview_plus
  * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -27,8 +27,8 @@ $string['alwaysshowall'] = 'Always Show All';
 $string['collapseall'] = 'Collapse All Course Lists';
 $string['configotherexpanded'] = 'If enabled, Other Courses will be expanded by default unless overriden by user preferences.';
 $string['configpreservestates'] = 'If enabled, the collapsed/expanded states set by the user are stored and used on each load.';
-$string['course_overview:addinstance'] = 'Add a new course overview block';
-$string['course_overview:myaddinstance'] = 'Add a new course overview block to the My Moodle page';
+$string['course_overview_plus:addinstance'] = 'Add a new course overview block';
+$string['course_overview_plus:myaddinstance'] = 'Add a new course overview block to the My Moodle page';
 $string['defaultmaxcourses'] = 'Default maximum courses';
 $string['defaultmaxcoursesdesc'] = 'Maximum courses which should be displayed on course overview block, 0 will show all courses';
 $string['expandall'] = 'Expand All Course Lists';
@@ -41,7 +41,7 @@ $string['messages'] = 'messages';
 $string['movecoursehere'] = 'Move course here';
 $string['numtodisplay'] = 'Number of courses to display: ';
 $string['otherexpanded'] = 'Other Courses Expanded';
-$string['pluginname'] = 'Course overview';
+$string['pluginname'] = 'Course Overview Plus';
 $string['preservestates'] = 'Preserve Expanded States';
 $string['shortnameprefix'] = 'Includes {$a}';
 $string['shortnamesufixsingular'] = ' (and {$a} other)';

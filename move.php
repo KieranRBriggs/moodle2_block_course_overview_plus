@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Move/order course functionality for course_overview block.
+ * Move/order course functionality for course_overview_plus block.
  *
- * @package    block_course_overview
+ * @package    block_course_overview_plus
  * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -30,7 +30,7 @@ require_login();
 $source = required_param('source', PARAM_INT);
 $move = required_param('move', PARAM_INT);
 
-list($courses_sorted, $sitecourses, $coursecount) = block_course_overview_get_sorted_courses();
+list($courses_sorted, $sitecourses, $coursecount) = block_course_overview_plus_get_sorted_courses();
 $sortorder = array_keys($courses_sorted);
 // Now resort based on new weight for chosen course.
 $neworder = array();
@@ -69,5 +69,5 @@ if ($move == -1) {
     }
 }
 
-block_course_overview_update_myorder($neworder);
+block_course_overview_plus_update_myorder($neworder);
 redirect(new moodle_url('/my/index.php'));

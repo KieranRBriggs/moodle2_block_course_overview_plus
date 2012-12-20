@@ -1,128 +1,128 @@
-.block_course_overview .coursechildren {
+.block_course_overview_plus .coursechildren {
     font-weight: normal;
     font-style: italic;
 }
 
-.block_course_overview .content {
+.block_course_overview_plus .content {
     margin: 0 20px;
 }
-.block_course_overview .content .notice {
+.block_course_overview_plus .content .notice {
     margin: 5px 0;
 }
 
-.block_course_overview .coursebox {
+.block_course_overview_plus .coursebox {
     padding: 15px;
     width: auto;
 }
 
-.block_course_overview .profilepicture {
+.block_course_overview_plus .profilepicture {
     float: left;
 }
-.dir-rtl.block_course_overview .profilepicture {
+.dir-rtl.block_course_overview_plus .profilepicture {
     float:right;
 }
-.block_course_overview .welcome_area {
+.block_course_overview_plus .welcome_area {
     width: 100%;
     padding-bottom: 5px;
 }
 
-.block_course_overview .welcome_message {
+.block_course_overview_plus .welcome_message {
     float: left;
     padding: 10px;
     vertical-align: middle;
     border-collapse: separate;
     clear: none;
 }
-.dir-rtl .block_course_overview .welcome_message {
+.dir-rtl .block_course_overview_plus .welcome_message {
     float:right;
 }
 
-.block_course_overview .content h2.title {
+.block_course_overview_plus .content h2.title {
     float: left;
     margin: 0 0 .5em 0;
     position: relative;
 }
-.dir-rtl .block_course_overview .content h2.title {
+.dir-rtl .block_course_overview_plus .content h2.title {
     float:right;
 }
 
-.block_course_overview .course_title {
+.block_course_overview_plus .course_title {
     position: relative;
 }
 
-.editing .block_course_overview .coursebox .cursor {
+.editing .block_course_overview_plus .coursebox .cursor {
     cursor: move;
     margin-bottom: 2px;
 }
 
-.editing .block_course_overview .move {
+.editing .block_course_overview_plus .move {
     float: left;
     padding: 2px 10px 0 0;
 }
-.dir-rtl.editing .block_course_overview .move {
+.dir-rtl.editing .block_course_overview_plus .move {
     float:right;
     padding: 2px 10px;
 }
 
-.editing .block_course_overview .moveicons {
+.editing .block_course_overview_plus .moveicons {
     display: block;
     float: left;
     padding-right: 5px;
 }
-.dir-rtl.editing .block_course_overview .moveicons {
+.dir-rtl.editing .block_course_overview_plus .moveicons {
     float:right;
 }
 
-.editing .block_course_overview .moveup {
+.editing .block_course_overview_plus .moveup {
     padding-right: 5px;
 }
 
-.editing .block_course_overview .movedownspacer {
+.editing .block_course_overview_plus .movedownspacer {
     float: left;
     width: 14px;
 }
-.dir-rtl.editing .block_course_overview .movedownspacer {
+.dir-rtl.editing .block_course_overview_plus .movedownspacer {
     float:right;
 }
 
-.editing .block_course_overview .moveupspacer {
+.editing .block_course_overview_plus .moveupspacer {
     float: right;
     width: 14px;
 }
-.dir-rtl.editing .block_course_overview .moveupspacer {
+.dir-rtl.editing .block_course_overview_plus .moveupspacer {
     float:left;
 }
 
-.block_course_overview #course_list {
+.block_course_overview_plus #course_list {
     width: 100%;
 }
 
-.block_course_overview div.flush {
+.block_course_overview_plus div.flush {
     clear: both;
 }
 
-.block_course_overview .activity_info {
+.block_course_overview_plus .activity_info {
     clear: both;
 }
-.dir-rtl .block_course_overview .activity_info {
+.dir-rtl .block_course_overview_plus .activity_info {
     margin-right: 25px;
 }
 
-.block_course_overview .activity_overview {
+.block_course_overview_plus .activity_overview {
     padding: 2px;
 }
-.block_course_overview .activity_overview img.iconlarge { vertical-align: text-bottom; margin-right: 6px; }
-.dir-rtl .block_course_overview .activity_overview img.iconlarge { margin-left: 6px; margin-right: 0;}
+.block_course_overview_plus .activity_overview img.iconlarge { vertical-align: text-bottom; margin-right: 6px; }
+.dir-rtl .block_course_overview_plus .activity_overview img.iconlarge { margin-left: 6px; margin-right: 0;}
 
-.block_course_overview .singleselect {
+.block_course_overview_plus .singleselect {
     text-align: left;
     margin: 0;
 }
-.dir-rtl .block_course_overview .singleselect {
+.dir-rtl .block_course_overview_plus .singleselect {
     text-align: right;
 }
 
-.block_course_overview .coursemovetarget {
+.block_course_overview_plus .coursemovetarget {
     display: block;
     height: 1em;
     margin-bottom: 1em;

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Save course order in course_overview block
+ * Save course order in course_overview_plus block
  *
- * @package    block_course_overview
+ * @package    block_course_overview_plus
  * @copyright  2012 Adam Olley <adam.olley@netspot.com.au>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -31,4 +31,4 @@ require_login();
 
 $sortorder = required_param_array('sortorder', PARAM_INT);
 
-block_course_overview_update_myorder($sortorder);
+block_course_overview_plus_update_myorder($sortorder);
