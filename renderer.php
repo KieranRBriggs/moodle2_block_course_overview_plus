@@ -288,6 +288,42 @@ class block_course_overview_plus_renderer extends plugin_renderer_base {
         $output .= $this->output->box_start('welcome_message');
         $output .= $this->output->heading(get_string('welcome', 'block_course_overview_plus', $USER->firstname));
 
+        // Get Social Media links
+        
+        $socialmedia = '';
+        
+        //Twitter
+	    if ($USER->profile['twitter']) {
+	        $twitterurl = 'http://www.twitter.com/'.$USER->profile['twitter'];
+	        $socialmedia .= html_writer::nonempty_tag('a',html_writer::empty_tag('img', array('src' => $this->pix_url('twitter', 'block_course_overview_plus'), 'class' => 'iconlarge')), array('href' => $twitterurl));
+        }
+        
+        //Facebook
+        if ($USER->profile['facebook']) {
+	        $facebookurl = 'http://www.facebook.com/'.$USER->profile['facebook'];
+	        $socialmedia .= html_writer::nonempty_tag('a',html_writer::empty_tag('img', array('src' => $this->pix_url('facebook', 'block_course_overview_plus'), 'class' => 'iconlarge')), array('href' => $facebookurl));
+        }
+        
+        //Flickr
+        if ($USER->profile['flickr']) {
+	        $flickrurl = 'http://www.flickr.com/'.$USER->profile['flickr'];
+	        $socialmedia .= html_writer::nonempty_tag('a',html_writer::empty_tag('img', array('src' => $this->pix_url('flickr', 'block_course_overview_plus'), 'class' => 'iconlarge')), array('href' => $flickrurl));
+         }
+         
+         //Instagram
+         if ($USER->profile['instagram']) {
+	         $instagramurl = 'http://www.instagram.com/'.$USER->profile['instagram'];
+	         $socialmedia .= html_writer::nonempty_tag('a',html_writer::empty_tag('img', array('src' => $this->pix_url('instagram', 'block_course_overview_plus'), 'class' => 'iconlarge')), array('href' => $instagramurl));
+         }
+         
+         //Googleplus
+         if ($USER->profile['googleplus']) {
+	         $googleplusurl = 'http://plus.google.com/'.$USER->profile['googleplus'];
+	         $socialmedia .= html_writer::nonempty_tag('a',html_writer::empty_tag('img', array('src' => $this->pix_url('googleplus', 'block_course_overview_plus'), 'class' => 'iconlarge')), array('href' => $googleplusurl));
+        }
+        //$output .= echo $USER->profile->twitter;
+        $output .= html_writer::tag('div', $socialmedia, array('class' => 'socialmedia'));
+        
         $plural = 's';
         if ($msgcount > 0) {
             $output .= get_string('youhavemessages', 'block_course_overview_plus', $msgcount);
@@ -304,4 +340,5 @@ class block_course_overview_plus_renderer extends plugin_renderer_base {
 
         return $output;
     }
+    
 }
