@@ -273,22 +273,15 @@ class block_course_overview_plus_renderer extends plugin_renderer_base {
     }
 
     /**
-     * Cretes html for welcome area
+     * Get social media links from profile
      *
-     * @param int $msgcount number of messages
-     * @return string html string for welcome area.
+     * @return string return the HTML as a string, rather than printing it.
      */
-    public function welcome_area($msgcount) {
-        global $USER;
-        $output = $this->output->box_start('welcome_area');
 
-        $picture = $this->output->user_picture($USER, array('size' => 75, 'class' => 'welcome_userpicture'));
-        $output .= html_writer::tag('div', $picture, array('class' => 'profilepicture'));
-
-        $output .= $this->output->box_start('welcome_message');
-        $output .= $this->output->heading(get_string('welcome', 'block_course_overview_plus', $USER->firstname));
-
-        // Get Social Media links
+    public function social_media() {
+	    global $USER;
+	    
+	      // Get Social Media links
         
         $socialmedia = '';
         
@@ -321,7 +314,29 @@ class block_course_overview_plus_renderer extends plugin_renderer_base {
 	         $googleplusurl = 'http://plus.google.com/'.$USER->profile['googleplus'];
 	         $socialmedia .= html_writer::nonempty_tag('a',html_writer::empty_tag('img', array('src' => $this->pix_url('googleplus', 'block_course_overview_plus'), 'class' => 'iconlarge')), array('href' => $googleplusurl));
         }
-        //$output .= echo $USER->profile->twitter;
+        
+        return $socialmedia;
+	    
+    }
+
+    /**
+     * Creates html for welcome area
+     *
+     * @param int $msgcount number of messages
+     * @return string html string for welcome area.
+     */
+    public function welcome_area($msgcount) {
+        global $USER;
+        $output = $this->output->box_start('welcome_area');
+
+        $picture = $this->output->user_picture($USER, array('size' => 75, 'class' => 'welcome_userpicture'));
+        $output .= html_writer::tag('div', $picture, array('class' => 'profilepicture'));
+
+        $output .= $this->output->box_start('welcome_message');
+        $output .= $this->output->heading(get_string('welcome', 'block_course_overview_plus', $USER->firstname));
+
+        $socialmedia = $this->social_media();
+        
         $output .= html_writer::tag('div', $socialmedia, array('class' => 'socialmedia'));
         
         $plural = 's';
