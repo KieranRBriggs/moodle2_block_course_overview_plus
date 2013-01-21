@@ -34,9 +34,16 @@
     clear: none;
 }
 
+
+
+.block_course_overview_plus .socialmedia img {
+	padding: 0.25em;
+}
+
 .block_course_overview_plus .welcome_message h2.main {
 	padding-top:0;
 	text-align: left;
+	display:inline;
 }
 
 .dir-rtl .block_course_overview_plus .welcome_message {

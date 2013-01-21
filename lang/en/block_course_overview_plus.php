@@ -54,3 +54,9 @@ $string['view_edit_profile'] = '(View and edit your profile.)';
 $string['welcome'] = 'Welcome back {$a}';
 $string['youhavemessages'] = 'You have {$a} unread ';
 $string['youhavenomessages'] = 'You have no unread ';
+
+// Edit form
+
+$string['title'] = 'Choose Title';
+$string['showunits'] = 'Show Course Units';
+$string['showmedia'] = 'Show Social Media Links';
