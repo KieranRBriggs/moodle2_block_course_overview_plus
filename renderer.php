@@ -257,7 +257,7 @@ class block_course_overview_plus_renderer extends plugin_renderer_base {
         $output .= '<div id="' . $id . '_caption" class="collapsibleregioncaption">';
         $output .= $caption . ' ';
         $output .= '</div><div id="' . $id . '_inner" class="collapsibleregioninner">';
-        $this->page->requires->js_init_call('M.block_course_overview_plus.collapsible', array($id, $userpref, get_string('clicktohideshow')));
+        $this->page->requires->js_init_call('M.block_course_overview.collapsible', array($id, $userpref, get_string('clicktohideshow')));
 
         return $output;
     }

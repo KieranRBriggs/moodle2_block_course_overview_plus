@@ -4,14 +4,14 @@
 }
 
 .block_course_overview_plus .content {
-    margin: 0 5px;
+    margin: 0 20px;
 }
 .block_course_overview_plus .content .notice {
     margin: 5px 0;
 }
 
 .block_course_overview_plus .coursebox {
-    padding: 5px;
+    padding: 15px;
     width: auto;
 }
 
@@ -28,30 +28,13 @@
 
 .block_course_overview_plus .welcome_message {
     float: left;
-    padding: 10px, 0 10px, 10px;
+    padding: 10px;
     vertical-align: middle;
     border-collapse: separate;
     clear: none;
 }
-
-
-
-.block_course_overview_plus .socialmedia img {
-	padding: 0.25em;
-}
-
-.block_course_overview_plus .welcome_message h2.main {
-	padding-top:0;
-	text-align: left;
-	display:inline;
-}
-
 .dir-rtl .block_course_overview_plus .welcome_message {
     float:right;
-}
-
-.block_course_overview_plus .coursebox .info {
-	width:80%;
 }
 
 .block_course_overview_plus .content h2.title {

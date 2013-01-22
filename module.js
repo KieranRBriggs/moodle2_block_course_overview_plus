@@ -1,7 +1,7 @@
-M.block_course_overview_plus = {}
+M.block_course_overview = {}
 
-M.block_course_overview_plus.add_handles = function(Y) {
-    M.block_course_overview_plus.Y = Y;
+M.block_course_overview.add_handles = function(Y) {
+    M.block_course_overview.Y = Y;
     YUI().use('dd-constrain', 'dd-proxy', 'dd-drop', 'dd-plugin', function(Y) {
         //Static Vars
         var goingUp = false, lastY = 0;
@@ -33,7 +33,7 @@ M.block_course_overview_plus.add_handles = function(Y) {
             var drag = e.target;
             //Set some styles here
             drag.get('node').setStyle('opacity', '.25');
-            drag.get('dragNode').addClass('block_course_overview_plus');
+            drag.get('dragNode').addClass('block_course_overview');
             drag.get('dragNode').set('innerHTML', drag.get('node').get('innerHTML'));
             drag.get('dragNode').setStyles({
                 opacity: '.5',
@@ -49,7 +49,7 @@ M.block_course_overview_plus.add_handles = function(Y) {
                 visibility: '',
                 opacity: '1'
             });
-            M.block_course_overview_plus.save(Y);
+            M.block_course_overview.save(Y);
         });
 
         Y.DD.DDM.on('drag:drag', function(e) {
@@ -99,8 +99,9 @@ M.block_course_overview_plus.add_handles = function(Y) {
     });
 }
 
-M.block_course_overview_plus.save = function() {
-    var Y = M.block_course_overview_plus.Y;
+
+M.block_course_overview.save = function() {
+    var Y = M.block_course_overview.Y;
     var sortorder = Y.one('#course_list').get('children').getAttribute('id');
     for (var i = 0; i < sortorder.length; i++) {
         sortorder[i] = sortorder[i].substring(7);
@@ -109,7 +110,7 @@ M.block_course_overview_plus.save = function() {
         sesskey : M.cfg.sesskey,
         sortorder : sortorder
     };
-    Y.io(M.cfg.wwwroot+'/blocks/course_overview_plus/save.php', {
+    Y.io(M.cfg.wwwroot+'/blocks/course_overview/save.php', {
         method: 'POST',
         data: build_querystring(params),
         context: this
@@ -123,12 +124,12 @@ M.block_course_overview_plus.save = function() {
  * @param {String} userpref the user preference that records the state of this box. false if none.
  * @param {String} strtooltip
  */
-M.block_course_overview_plus.collapsible = function(Y, id, userpref, strtooltip) {
+M.block_course_overview.collapsible = function(Y, id, userpref, strtooltip) {
     if (userpref) {
-        M.block_course_overview_plus.userpref = true;
+        M.block_course_overview.userpref = true;
     }
     Y.use('anim', function(Y) {
-        new M.block_course_overview_plus.CollapsibleRegion(Y, id, userpref, strtooltip);
+        new M.block_course_overview.CollapsibleRegion(Y, id, userpref, strtooltip);
     });
 };
 
@@ -142,7 +143,7 @@ M.block_course_overview_plus.collapsible = function(Y, id, userpref, strtooltip)
  * @param {String} userpref The user preference that records the state of this box. false if none.
  * @param {String} strtooltip
  */
-M.block_course_overview_plus.CollapsibleRegion = function(Y, id, userpref, strtooltip) {
+M.block_course_overview.CollapsibleRegion = function(Y, id, userpref, strtooltip) {
     // Record the pref name
     this.userpref = userpref;
 
@@ -201,26 +202,26 @@ M.block_course_overview_plus.CollapsibleRegion = function(Y, id, userpref, strto
     }, this, animation);
 };
 
-M.block_course_overview_plus.userpref = false;
+M.block_course_overview.userpref = false;
 
 /**
  * The user preference that stores the state of this box.
  * @property userpref
  * @type String
  */
-M.block_course_overview_plus.CollapsibleRegion.prototype.userpref = null;
+M.block_course_overview.CollapsibleRegion.prototype.userpref = null;
 
 /**
  * The key divs that make up this
  * @property div
  * @type Y.Node
  */
-M.block_course_overview_plus.CollapsibleRegion.prototype.div = null;
+M.block_course_overview.CollapsibleRegion.prototype.div = null;
 
 /**
  * The key divs that make up this
  * @property icon
  * @type Y.Node
  */
-M.block_course_overview_plus.CollapsibleRegion.prototype.icon = null;
+M.block_course_overview.CollapsibleRegion.prototype.icon = null;
 
