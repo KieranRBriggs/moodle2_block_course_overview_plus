@@ -99,7 +99,6 @@ M.block_course_overview.add_handles = function(Y) {
     });
 }
 
-
 M.block_course_overview.save = function() {
     var Y = M.block_course_overview.Y;
     var sortorder = Y.one('#course_list').get('children').getAttribute('id');
@@ -128,6 +127,7 @@ M.block_course_overview.collapsible = function(Y, id, userpref, strtooltip) {
     if (userpref) {
         M.block_course_overview.userpref = true;
     }
+	
     Y.use('anim', function(Y) {
         new M.block_course_overview.CollapsibleRegion(Y, id, userpref, strtooltip);
     });
@@ -144,6 +144,7 @@ M.block_course_overview.collapsible = function(Y, id, userpref, strtooltip) {
  * @param {String} strtooltip
  */
 M.block_course_overview.CollapsibleRegion = function(Y, id, userpref, strtooltip) {
+
     // Record the pref name
     this.userpref = userpref;
 
@@ -200,6 +201,16 @@ M.block_course_overview.CollapsibleRegion = function(Y, id, userpref, strtooltip
         }
         animation.run();
     }, this, animation);
+
+};
+
+
+M.block_course_overview.add_tabs = function(Y) {
+	M.block_course_overview.Y = Y;
+	YUI().use('tabview', function(Y) {
+		var tabview = new Y.TabView({srcNode: '#tabContainer'});
+		tabview.render();
+	});
 };
 
 M.block_course_overview.userpref = false;

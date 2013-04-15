@@ -23,6 +23,7 @@
  */
 require_once($CFG->dirroot.'/blocks/course_overview_plus/locallib.php');
 
+
 /**
  * Course overview block
  *
@@ -30,6 +31,8 @@ require_once($CFG->dirroot.'/blocks/course_overview_plus/locallib.php');
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class block_course_overview_plus extends block_base {
+	
+	
     /**
      * Block initialization
      */
@@ -82,18 +85,15 @@ class block_course_overview_plus extends block_base {
         if (empty($sortedcourses)) {
             $this->content->text .= get_string('nocourses','my');
         } else {
-        	// For each course, build category cache.
-            //! Start of Tab box for courses
-            $this->content->text .= "<div id='tabContainer' style='width:90%'>";
-            $this->content->text .= "<ul><li><a href='#role3'>My Courses</a></li><li><a href='#role5'>Courses I Teach</a></li><li><a href='#role4'>Course I edit</a></li></ul>";
-            $this->content->text .= "<div id='role3'>";
-            $this->content->text .= $renderer->course_overview_plus($sortedcourses, $overviews);
+            // For each course, build category cache.
+            $rolesa = array();
+            $rolesa = $DB->get_recordset_select('role_assignments','userid=2');
+            $roles = array(3,4,5); //! Get Roles working Properly
+            $this->content->text .= $renderer->course_overview_plus($sortedcourses, $overviews, $roles);//! Role added to function call
             $this->content->text .= $renderer->hidden_courses($totalcourses - count($sortedcourses));
             if ($this->page->user_is_editing() && ajaxenabled()) {
                 $this->page->requires->js_init_call('M.block_course_overview.add_handles');
             }
-            //! End of Tab box for Courses
-            $this->content->text .= "</div></div>";
         }
 
         return $this->content;

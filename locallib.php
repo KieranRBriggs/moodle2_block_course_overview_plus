@@ -263,25 +263,34 @@ function block_course_overview_plus_enrol_get_my_courses($fields = NULL, $sort =
     $wheres = implode(" AND ", $wheres);
     //! This is where I am working on different roles
     //note: we can not use DISTINCT + text fields due to Oracle and MS limitations, that is why we have the subselect there
+    print($coursefields);
+    print($ccselect);
+    print($ccjoin);
     $sql = "SELECT $coursefields $ccselect
               FROM {course} c
               JOIN (SELECT DISTINCT e.courseid
                       FROM {enrol} e
                       JOIN {user_enrolments} ue ON (ue.enrolid = e.id AND ue.userid = :userid)
-                     WHERE ue.status = :active AND e.roleid = :roletype AND e.status = :enabled AND ue.timestart < :now1 AND (ue.timeend = 0 OR ue.timeend > :now2)
+                     WHERE ue.status = :active AND e.status = :enabled AND ue.timestart < :now1 AND (ue.timeend = 0 OR ue.timeend > :now2)
                    ) en ON (en.courseid = c.id)
+              JOIN {role_assignments} ra ON 
            $ccjoin
              WHERE $wheres
           $orderby";
     $params['userid']  	= $USER->id;
-    $params['active']  	= ENROL_USER_ACTIVE;
-    $params['enabled'] 	= ENROL_INSTANCE_ENABLED;
-    $params['now1']    	= round(time(), -2); // improves db caching
-    $params['now2']    	= $params['now1'];
-    $params['roletype'] = 5; // Type of Role Assignment
-
-    $courses = $DB->get_records_sql($sql, $params, 0, $limit);
-
+    //$params['active']  	= ENROL_USER_ACTIVE;
+    //$params['enabled'] 	= ENROL_INSTANCE_ENABLED;
+    //$params['now1']    	= round(time(), -2); // improves db caching
+    //$params['now2']    	= $params['now1'];
+    $sql2 = 'SELECT DISTINCT ra.roleid, ra.userid, mdl_course.sortorder, mdl_course.fullname, mdl_course.shortname, mdl_course.id, 						mdl_course.category, mdl_course.visible
+    		FROM {role_assignments} ra
+    		LEFT JOIN mdl_context on mdl_context.id = ra.contextid
+    		LEFT JOIN mdl_course on mdl_course.id  = mdl_context.instanceid
+    		WHERE ra.userid = :userid
+    		ORDER BY mdl_course.fullname ASC';
+    $courses = $DB->get_records_sql($sql2, $params);
+    //$courses = $DB->get_records_sql($sql, $params, 0, $limit);
+    
     // preload contexts and check visibility
     foreach ($courses as $id=>$course) {
         context_instance_preload($course);
@@ -299,6 +308,6 @@ function block_course_overview_plus_enrol_get_my_courses($fields = NULL, $sort =
     }
 
     //wow! Is that really all? :-D
-
+    print_object($courses);
     return $courses;
 }

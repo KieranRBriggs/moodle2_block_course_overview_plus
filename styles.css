@@ -3,15 +3,39 @@
     font-style: italic;
 }
 
+.block_course_overview_plus h2.main {
+    padding:0;
+    text-align: left;
+
+}
+
+.block_course_overview_plus .course_list .title h2 {
+	margin-bottom: 10px;
+
+}
+
+.block_course_overview_plus h3 {
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+}
+
+.collapsibleregioncaption {
+	font-size: 0.9em;
+}
+
+.block_course_overview_plus .coursebox .info {
+	width:90%;
+}
+
 .block_course_overview_plus .content {
-    margin: 0 20px;
+    margin: 0 3px;
 }
 .block_course_overview_plus .content .notice {
     margin: 5px 0;
 }
 
 .block_course_overview_plus .coursebox {
-    padding: 15px;
+    padding-bottom: 5px;
     width: auto;
 }
 
@@ -28,7 +52,6 @@
 
 .block_course_overview_plus .welcome_message {
     float: left;
-    padding: 10px;
     vertical-align: middle;
     border-collapse: separate;
     clear: none;
@@ -128,4 +151,8 @@
     margin-bottom: 1em;
     border-width: 2px;
     border-style: dashed;
+}
+
+.block_course_overview_plus .socialmedia img{
+	margin-right:5px;
 }
